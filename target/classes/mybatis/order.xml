@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="order.model.Order">
+	<insert id="InsertS_orders">
+		insert into s_orders values(o_seq.nextval,#{s_num},#{o_id},#{o_name},#{o_order},
+		#{o_price},#{o_total_price},#{o_total_point})
+	</insert>
+	
+	<select id="GetAllS_orders" resultType="order.model.OrderBean">
+		select * from s_orders
+	</select>
+	
+	<update id="UpdateS_orders">
+		update s_orders set o_order=#{o_order} where s_num=#{s_num}
+	</update>
+</mapper>
+<!-- order.xml -->
